@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="urn:magento:framework:Config/etc/theme"
+           xmlns="urn:magento:framework:Config/etc/theme"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+    <xs:import namespace="urn:magento:framework:Config/etc/theme"
+               schemaLocation="theme.xsd"/>
+
+    <xs:element name="theme">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="theme:theme">
+                    <xs:sequence>
+                        <xs:element name="tailwind" minOccurs="0" maxOccurs="1">
+                            <xs:complexType>
+                                <xs:sequence>
+                                   <xs:element name="bronze_byte_tailwind" type="xs:boolean" minOccurs="0" default="false"/>
+                                    <xs:element name="tailwind_input_file" type="xs:string" minOccurs="1"/>
+                                    <xs:element name="tailwind_output_file" type="xs:string" minOccurs="1"/>
+                                    <xs:element name="tailwind_config_file" type="xs:string" minOccurs="1"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

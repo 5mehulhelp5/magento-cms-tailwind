@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<type name="BronzeByte\Tailwind\Model\Builder">
+    <arguments>
+        <argument name="scopeConfig" xsi:type="object">Magento\Framework\App\Config\ScopeConfigInterface</argument>
+        <argument name="storeManager" xsi:type="object">Magento\Store\Model\StoreManagerInterface</argument>
+        <argument name="themeProvider" xsi:type="object">Magento\Framework\View\Design\Theme\ThemeProviderInterface</argument>
+        <argument name="logger" xsi:type="object">Psr\Log\LoggerInterface</argument>
+    </arguments>
+</type>
+
+
+<type name="Magento\Deploy\Service\DeployStaticContent">
+        <plugin name="custom_deploy_static_content_plugin"
+                type="BronzeByte\Tailwind\Plugin\Deploy\Service\DeployStaticContentPlugin"
+                sortOrder="1" />
+</type>
+
+ <type name="Magento\Cms\Block\Page">
+        <plugin name="bronze_byte_tailwind_page_plugin"
+                type="BronzeByte\Tailwind\Plugin\Cms\Block\PagePlugin"
+                sortOrder="1"/>
+    </type>
+     <type name="Magento\Widget\Model\Template\Filter">
+        <plugin name="widget_template_filter_plugin" type="BronzeByte\Tailwind\Plugin\Widget\Model\Template\FilterPlugin" sortOrder="10" />
+    </type>
+</config>
